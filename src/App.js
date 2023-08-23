@@ -11,12 +11,12 @@ export default class App extends Component {
     `;
 
     const inputEl = this.el.querySelector('input');
-    inputEl.addEventListner('input', () => {
+    inputEl.addEventListener('input', () => {
       this.state.inputText = inputEl.value;
     });
 
     const buttonEl = this.el.querySelector('button');
-    buttonEl.addEventListner('click', () => {
+    buttonEl.addEventListener('click', () => {
       console.log(this.state.inputText);
     });
   }
