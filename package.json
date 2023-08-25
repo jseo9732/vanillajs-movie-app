@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/jseo9732/vanillajs-movie-app#readme",
   "devDependencies": {
+    "dotenv": "^16.3.1",
     "parcel": "^2.9.3",
     "vercel": "^32.1.0"
   },
