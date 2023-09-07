@@ -1,6 +1,19 @@
 ///// Component /////
+interface ComponentPayload {
+  tagName?: string;
+  props?: {
+    [key: string]: unknown;
+  };
+  state?: {
+    [key: string]: unknown;
+  };
+}
+
 export class Component {
-  constructor(payload = {}) {
+  public el;
+  public props;
+  public state;
+  constructor(payload: ComponentPayload = {}) {
     const {
       tagName = 'div', // 최상위 요소의 태그 이름
       props = {},
@@ -36,7 +49,7 @@ function routeRender(routes) {
   history.replaceState(query, ''); // (상태, 제목)
 
   // 2) 현재 라우트 정보를 찾아서 렌더링!
-  const currentRoute = routes.find((route) =>
+  const currentRoute = routes.find(route =>
     new RegExp(`${route.path}/?$`).test(hash)
   );
   routerView.innerHTML = '';
@@ -66,11 +79,11 @@ export class Store {
         // Getter
         get: () => state[key],
         // Setter
-        set: (val) => {
+        set: val => {
           state[key] = val;
           if (Array.isArray(this.observers[key])) {
             // 호출할 콜백이 있는 경우!
-            this.observers[key].forEach((observer) => observer(val));
+            this.observers[key].forEach(observer => observer(val));
           }
         },
       });
