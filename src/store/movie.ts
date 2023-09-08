@@ -1,6 +1,6 @@
 import { Store } from '../core/heropy';
 
-interface SimpleMovie {
+export interface SimpleMovie {
   Poster: string;
   Title: string;
   Type: string;
